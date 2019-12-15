@@ -29,6 +29,7 @@ class Ship{
 
   }
   update(){
+    this.angle = this.acc.heading() + PI/2;
     var distToPlanet;
 
      distToPlanet = this.loc.dist(planet.loc);
@@ -52,10 +53,9 @@ class Ship{
   render(){
     this.heading = this.vel.heading();
     fill(this.clr);
-    this.angle = this.angle +1;
     push();
     translate (this.loc.x, this.loc.y);
-    rotate (this.heading +1);
+    rotate (this.angle);
     triangle (-5, 8, 5,8,0, -8);
     pop();
   }
